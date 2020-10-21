@@ -1,0 +1,183 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Ram{% endblock %}
+
+{% block content %}    
+  <body style="background-color: #f8f8f8;">
+        
+        <section class="jumbotron text-center">
+            <style>
+                section{
+                    background-image: url("/static/fotos/bannerProductos.jpg");
+                }
+            </style>
+            <div class="container-fluid">
+                <h1 style="font-size: 6vw; color: white;">Ram</h1>                       
+            </div>
+        </section>
+
+        <!--Seguimiento-->
+        <div id="seguimiento" class="container" >
+            <div class="col-md-5">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+                    <li class="breadcrumb-item active">Ram</li>
+                </ol>
+            </div>
+        </div>
+
+        
+        <div class="album py-5">
+            <div class="container" >
+                <div class="row">                  
+                    
+                    <!--Ram Pc-->
+                    <div class=" col-md-4" >
+                        <div class="card mb-4 shadow-sm">
+                            {% load static %}<a href="404.html"><img class="producto" alt="A-DATA" src="{% static 'fotos/piezas/ram/rampc/A-DATAXPGSpectrixD60G(300x300).png' %}"  ></a>
+                        
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> A-DATA XPG <br>
+                                    <b>Capacidad:</b> 1 x 8GB <br>
+                                    <b>Tipo:</b> DDR4 <br>
+                                    <b>Frecuencia:</b> 3000 Mhz <br>
+                                    <b>Formato:</b> DIMM
+                                </p>
+                            
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockDataDim }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" >
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static %}<a href="404.html"><img class="producto" alt="CRUCIAL" src="{% static 'fotos/piezas/ram/rampc/CrucialBallistixTacticalTracer(300x300).png' %}"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> Crucial Ballistix<br>
+                                    <b>Capacidad:</b> 2 x 8GB <br>
+                                    <b>Tipo:</b> DDR4 <br>
+                                    <b>Frecuencia:</b> 2666 Mhz <br>
+                                    <b>Formato:</b> DIMM
+                                    
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockCrucial }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4"  >
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static %}<a href="404.html"><img class="producto" alt="G.SKILL" src="{% static 'fotos/piezas/ram/rampc/G.SkillTridentZRoyal(300x300).png' %}" ></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> G.Skill TridentZ <br>
+                                    <b>Capacidad:</b> 2 x 8GB <br>
+                                    <b>Tipo:</b> DDR4 <br>
+                                    <b>Frecuencia:</b> 3200 Mhz <br>
+                                    <b>Formato:</b> DIMM
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockTrident }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+
+                    <!--Ram Notebook-->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static %}<a href="404.html"><img class="producto" alt="A-DATA" src="{% static 'fotos/piezas/ram/ramnotebook/A-DATAXPGHunter(300x300).png' %}" ></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> A-DATA XPG  <br>
+                                    <b>Capacidad:</b> 1 x 8GB <br>
+                                    <b>Tipo:</b> DDR4 <br>
+                                    <b>Frecuencia:</b> 2666 Mhz <br>
+                                    <b>Formato:</b> SO-DIMM
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockDataSo }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" >
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static %}<a href="404.html"><img class="producto" alt="G.SKILL" src="{% static 'fotos/piezas/ram/ramnotebook/G.SkillRipjaws(300x300).png' %}"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> G.Skill RipJaws <br>
+                                    <b>Capacidad:</b> 1 x 16GB <br>
+                                    <b>Tipo:</b> DDR4 <br>
+                                    <b>Frecuencia:</b> 2666 Mhz <br>
+                                    <b>Formato:</b> SO-DIMM
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockRip }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" >
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static %}<a href="404.html"><img class="producto" alt="KINGSTON" src="{% static 'fotos/piezas/ram/ramnotebook/KingstonHyperXImpact(300x300).png' %}"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> HyperX Impact <br>
+                                    <b>Capacidad:</b> 1 x 32GB <br>
+                                    <b>Tipo:</b> DDR4 <br>
+                                    <b>Frecuencia:</b> 3200 Mhz <br>
+                                    <b>Formato:</b> SO-DIMM
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockHyper }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+  </body>
+{% endblock %}
+  
+  

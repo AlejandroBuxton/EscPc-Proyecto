@@ -1,0 +1,246 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Placas Madres{% endblock %}
+
+{% block content %}
+
+    <body style="background-color: #f8f8f8;">
+
+        <section class="jumbotron text-center"><style>
+                                                    section{
+                                                        background-image: url("/static/fotos/bannerProductos.jpg");
+                                                    }
+                                               </style>
+            
+            <div class="container-fluid">
+                <h1 style="font-size: 6vw; color: white;">Placas Madres</h1>                       
+            </div>
+        </section>
+
+        <!--Seguimiento-->
+        <div id="seguimiento" class="container">
+            <div class="col-md-5">
+                <ol class="breadcrumb breadcrumb-extend">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+                    <li class="breadcrumb-item active">Placas Madres</li>
+                </ol>
+            </div>
+        </div>
+
+        
+        <div class="album py-5">
+            <div class="container" >
+                <div class="row">                  
+                    
+                    <!--MSI-->
+                    <div class=" col-md-4" >
+                        <div class="card mb-4 shadow-sm">
+                            {% load static %}
+                            <a href="404.html"><img class="producto" src="{% static 'fotos/piezas/placamadre/msi/MsiB450TomahowkMax300x300.png' %}" alt="MSI"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> Msi <br> 
+                                    <b>Modelo:</b> B450 TomaHowk <br>
+                                    <b>Formato:</b> ATX <br>
+                                    <b>Plataforma:</b> AMD
+                                </p>
+                            
+                                <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                </div>
+                                <small class="text-muted ml-2">stock:<b>{{ stock }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4" >
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static%}
+                            <a href="404.html"><img class="producto" alt="MSI" src="{% static 'fotos/piezas/placamadre/msi/MsiMPGB550GAMINGPLUS300X300.png' %}"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> Msi <br>
+                                    <b>Modelo:</b> MPG B550 GAMING PLUS <br>
+                                    <b>Formato:</b> ATX <br>
+                                    <b>Plataforma:</b> AMD
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockMPG }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4"  >
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static%}
+                            <a href="404.html"><img class="producto" alt="MSI" src="{% static 'fotos/piezas/placamadre/msi/Msix299Tomahawk300x300.png' %}" ></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                <b>Marca:</b> Msi <br>
+                                <b>Modelo:</b> x299 TomaHowk <br>
+                                <b>Formato:</b> ATX <br>
+                                <b>Plataforma:</b> Intel
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockx299 }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+
+                    <!--ASUS-->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static %}
+                            <a href="404.html"><img class="producto" alt="ASUS" src="{% static 'fotos/piezas/placamadre/asus/ASUSTUFX299MARK2(300x300).png' %}" ></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> Asus <br> 
+                                    <b>Modelo:</b> TUF X299 MARK 2 <br>
+                                    <b>Formato:</b> ATX <br>
+                                    <b>Plataforma:</b> Intel
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockTUFx299 }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" >
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static %}
+                            <a href="404.html"><img class="producto" alt="ASUS" src="{% static 'fotos/piezas/placamadre/asus/ASUSROGSTRIXX299-EGAMING(300x300).png' %}"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> Asus <br>
+                                    <b>Modelo:</b> ROG STRIX x299 EGAMING <br>
+                                    <b>Formato:</b> ATX <br>
+                                    <b>Plataforma:</b> Intel
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockRog }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" >
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static%}
+                            <a href="404.html"><img class="producto" alt="ASUS" src="{% static 'fotos/piezas/placamadre/asus/ASUSTUFGAMINGX570-PLUS(300x300).png' %}"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> Asus <br>
+                                    <b>Modelo:</b> TUF GAMING x570 PLUS <br>
+                                    <b>Formato:</b> ATX <br>
+                                    <b>Plataforma:</b> AMD
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockTUFx570 }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Gigabyte-->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static %}
+                            <a href="404.html"><img class="producto" alt="GIGABYTE" src="{% static 'fotos/piezas/placamadre/Gigabyte/GigabyteB450AORUSPROWIFI(300x300).png' %}"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> Gigabyte <br>
+                                    <b>Modelo:</b> B450 AORUS PRO WIFI <br>
+                                    <b>Formato:</b> ATX <br>
+                                    <b>Plataforma:</b> AMD
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button> 
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockB450Aorus }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" >
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static %}
+                            <a href="404.html"><img class="producto" alt="GIGABYTE" src="{% static 'fotos/piezas/placamadre/Gigabyte/GigabyteGA-Z270N-GAMING5(300x300).png' %}"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> Gigabyte <br>
+                                    <b>Modelo:</b> GA-Z270N-GAMING 5 <br>
+                                    <b>Formato:</b> Mini ITX<br>
+                                    <b>Plataforma:</b> Intel
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockGa }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm" >
+                            {% load static %}
+                            <a href="404.html"><img class="producto" alt="GIGABYTE" src="{% static 'fotos/piezas/placamadre/Gigabyte/GigabyteZ490GAMINGX(300x300).png' %}" ></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> Gigabyte <br>
+                                    <b>Modelo:</b> Z490 GAMING X <br>
+                                    <b>Formato:</b> ATX <br>
+                                    <b>Plataforma:</b> Intel
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm  btn-outline-secondary ">Detalles</button>
+                                        <button type="button" class="btn btn-sm  btn-outline-secondary ">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ stockZ490 }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}
+
