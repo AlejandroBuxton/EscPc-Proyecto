@@ -40,14 +40,14 @@
                     <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" data-target="desplegable">Componentes</a>
                     
                     <div class="dropdown-menu">
-                        <a href="{% url 'placasmadres' %}" class="dropdown-item">Placas Madres</a>
-                        <a href="{% url 'procesadores' %}" class="dropdown-item">Procesadores</a>
-                        <a href="tarjetadevideo.html" class="dropdown-item">Tarjetas de video</a>
-                        <a href="{% url 'ram' %}" class="dropdown-item">Ram</a>
-                        <a href="almacenamiento.html" class="dropdown-item">Almacenamiento</a>
-                        <a href="fuenteDePoder.html" class="dropdown-item">Fuentes de Poder</a>
-                        <a href="gabinetes.html" class="dropdown-item">Gabinetes</a>
-                        <a href="monitores.html" class="dropdown-item">Monitores</a>
+                        <a href="{% url 'placamadre' %}" class="dropdown-item">Placas Madres</a>
+                        <a href="{% url 'procesador' %}" class="dropdown-item">Procesadores</a>
+                        <a href="{% url 'video' %}" class="dropdown-item">Tarjetas de video</a>
+                        <a href="{% url 'rams' %}" class="dropdown-item">Ram</a>
+                        <a href="{% url 'alma' %}" class="dropdown-item">Almacenamiento</a>
+                        <a href="{% url 'fuente' %}" class="dropdown-item">Fuentes de Poder</a>
+                        <a href="{% url 'gabo' %}" class="dropdown-item">Gabinetes</a>
+                        <a href="{% url 'moni' %}" class="dropdown-item">Monitores</a>
                     </div>
                     
                 </li>
@@ -68,16 +68,8 @@
             </div>
           </nav>
     </div>
-
-    
-    
-
-    
-
-    
+    <!--contenido de todas las paginas-->
     {% block content %}{% endblock %}
-  
-
     <footer>
         <div class="container-fluid">
           <p>Equipo de: EscPc</p>

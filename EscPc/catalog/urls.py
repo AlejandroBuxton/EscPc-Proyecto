@@ -3,7 +3,12 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('templates/', views.placasmadres, name="placasmadres"),
-    path('templates/procesadores.html', views.procesadores, name="procesadores"),
-    path('templates/ram.html', views.ram,name='ram'),
+    path('templates/placasmadres.html', views.placamadre, name="placamadre"),
+    path('templates/procesadores.html', views.procesador, name="procesador"),
+    path('templates/tarjetadevideo.html', views.video, name="video"),
+    path('templates/ram.html', views.rams, name="rams"),
+    path('templates/almacenamiento.html', views.alma, name="alma"),
+    path('templates/fuenteDePoder.html', views.fuente, name="fuente"),
+    path('templates/gabinetes.html', views.gabo, name="gabo"),
+    path('templates/monitores.html', views.moni, name="moni"),
 ]

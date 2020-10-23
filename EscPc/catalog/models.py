@@ -5,250 +5,232 @@ import uuid
 
 class PlacasMadre(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
-    
-    CATALOGO_MARCA_PLACAMADRE = (
-        ('s','Seleccione'),
-        ('m','MSI'),
-        ('a','ASUS'),
-        ('g','GIGABYTE')
-    )
-
-    marca = models.CharField(max_length=1,choices=CATALOGO_MARCA_PLACAMADRE,blank=False,default='s',help_text='Marca del producto')
+    marca = models.CharField(max_length=100,help_text='Marca del producto')
     modelo = models.CharField(max_length=100)
     
     CATALOGO_FORMATO_PLACAMADRE = (
-        ('s','Seleccione'),
-        ('a','ATX'),
-        ('i','Mini ITX')
+        ('seleccione','Seleccione'),
+        ('ATX','ATX'),
+        ('Mini ITX','Mini ITX'),
+        ('Micro ATX','Micro ATX'),
     )
 
-    formato = models.CharField(max_length=1,choices=CATALOGO_FORMATO_PLACAMADRE,blank=False,default='s',help_text='Formato de la Placa Madre')
+    formato = models.CharField(max_length=10,choices=CATALOGO_FORMATO_PLACAMADRE,blank=False,default='s',help_text='Formato de la Placa Madre')
 
     CATALOGO_PLATAFORMA_PLACAMADRE = (
-        ('se','Seleccione'),
-        ('am','AMD'),
-        ('in','Intel')
+        ('seleccione','Seleccione'),
+        ('AMD','AMD'),
+        ('Intel','Intel')
     )
 
-    plataforma = models.CharField(max_length=2,choices=CATALOGO_PLATAFORMA_PLACAMADRE,blank=False,default='se',help_text='Plataforma de la Placa Madre')
-
+    plataforma = models.CharField(max_length=10,choices=CATALOGO_PLATAFORMA_PLACAMADRE,blank=False,default='se',help_text='Plataforma de la Placa Madre')
+    stock = models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to='placasmadres/',null=True)
     precio = models.IntegerField(default=0)
     
+    def __str__(self):
+        return self.modelo
 
 class Procesadore(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
 
     CATALOGO_MARCA_PROCESADOR = (
-        ('s','Seleccione'),
-        ('a','AMD'),
-        ('i','Intel')
+        ('seleccione','Seleccione'),
+        ('AMD','AMD'),
+        ('Intel','Intel')
     )
 
-    marca = models.CharField(max_length=1,choices=CATALOGO_MARCA_PROCESADOR,blank=False,default='s',help_text='Marca del producto')
-
+    marca = models.CharField(max_length=10,choices=CATALOGO_MARCA_PROCESADOR,blank=False,default='s',help_text='Marca del producto')
     modelo = models.CharField(max_length=100)
     frecuencia = models.CharField(max_length=50)
     
     CATALOGO_SOCKET_PROCESADOR = (
-        ('s','Seleccione'),
-        ('l','LGA 1151-v2'),
-        ('m','AM4'),
-        ('t','TR4')
+        ('seleccione','Seleccione'),
+        ('LGA 1151-v2','LGA 1151-v2'),
+        ('AM4','AM4'),
+        ('TR4','TR4')
     )
 
-    socket = models.CharField(max_length=1,choices=CATALOGO_SOCKET_PROCESADOR,blank=False,default='s',help_text='Socket del producto')
-
+    socket = models.CharField(max_length=11,choices=CATALOGO_SOCKET_PROCESADOR,blank=False,default='s',help_text='Socket del producto')
+    stock = models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to='procesador/',null=True)
     precio = models.IntegerField(default=0)
+
+    def __str__(self):
+        return  self.modelo
 
 class Gpu(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
-
-    CATALOGO_MARCA_GPU = (
-        ('s','Seleccione'),
-        ('a','AMD radeon'),
-        ('m','MSI'),
-        ('s','ASUS'),
-        ('n','Nvidia')
-    )
-
-    marca = models.CharField(max_length=1,choices=CATALOGO_MARCA_GPU,blank=False,default='s',help_text='Mara del producto'
-    )
-
+    marca = models.CharField(max_length=100,help_text='Marca del producto')
     modelo = models.CharField(max_length=100)
 
     CATALOGO_PLATAFORMA_GPU = (
-        ('s','Seleccione'),
-        ('a','AMD'),
-        ('n','Nvidia')
+        ('seleccione','Seleccione'),
+        ('AMD','AMD'),
+        ('Nvidia','Nvidia'),
     )
 
-    plataforma = models.CharField(max_length=1, choices=CATALOGO_PLATAFORMA_GPU,blank=False,default='s',help_text='Plataforma del producto')
-
+    plataforma = models.CharField(max_length=10, choices=CATALOGO_PLATAFORMA_GPU,blank=False,default='s',help_text='Plataforma del producto')
     memoria = models.CharField(max_length=100)
     frecuencia = models.CharField(max_length=100)
+    stock = models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to='gpu/',null=True)
     precio = models.IntegerField(default=0)
+
+    def __str__(self):
+        return  self.modelo
 
 class Ram(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
-
-    CATALOGO_MARCA_RAM = (
-        ('s','Seleccione'),
-        ('a','A-DATA'),
-        ('c','Crucial'),
-        ('g','G.Skill'),
-        ('h','HyperX')
-    )
-
-    marca = models.CharField(max_length=1,choices=CATALOGO_MARCA_RAM,blank=False,default='s',help_text='Marca del producto')
-
+    marca = models.CharField(max_length=100,help_text='Marca del producto')
     capacidad = models.CharField(max_length=100)
 
     CATALOGO_TIPO_RAM = (
-        ('se','Seleccione'),
-        ('d3','DDR3'),
-        ('d4','DDR4')
+        ('seleccione','Seleccione'),
+        ('DDR3','DDR3'),
+        ('DDR4','DDR4'),
     )
 
-    tipo = models.CharField(max_length=2,choices=CATALOGO_TIPO_RAM,blank=False,default='se',help_text='Tipo de ram')
+    tipo = models.CharField(max_length=10,choices=CATALOGO_TIPO_RAM,blank=False,default='se',help_text='Tipo de ram')
     frecuencia = models.CharField(max_length=50)
     
     CATALOGO_FORMATO_RAM = (
-        ('s','Seleccione'),
-        ('d','DIMM'),
-        ('s','SO-DIMM')
+        ('seleccione','Seleccione'),
+        ('DIMM','DIMM'),
+        ('SO-DIMM','SO-DIMM')
     )
 
-    formato = models.CharField(max_length=1,choices=CATALOGO_FORMATO_RAM,blank=False,default='s',help_text='Formato de la Ram')
+    formato = models.CharField(max_length=10,choices=CATALOGO_FORMATO_RAM,blank=False,default='s',help_text='Formato de la Ram')
+    stock = models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to='ram/',null=True)
     precio = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.marca 
 
 class Almacenamiento(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unido del producto')
-
-    CATALOGO_MARCA_ALMACENAMIENTO = (
-        ('se','Seleccione'),
-        ('we','Western Digital'),
-        ('sa','Samsung'),
-        ('Ki','Kingston')
-    )
-    marca = models.CharField(max_length=2,choices=CATALOGO_MARCA_ALMACENAMIENTO,blank=False,default='se',help_text='Marca del producto')
+    marca = models.CharField(max_length=100,help_text='Marca del producto')
     modelo = models.CharField(max_length=50)
     capacidad = models.CharField(max_length=50)
     
     CATALOGO_FORMATO_ALMACENAMIENTO = (
-        ('s','Seleccione'),
-        ('h','HDD'),
-        ('m','M.2'),
-        ('2','2.5"')
+        ('seleccione','Seleccione'),
+        ('HDD','HDD'),
+        ('M.2','M.2'),
+        ('2.5"','2.5"'),
     )
 
-    formato = models.CharField(max_length=1,choices=CATALOGO_FORMATO_ALMACENAMIENTO,blank=False,default='s',help_text='Formato del producto')
+    formato = models.CharField(max_length=10,choices=CATALOGO_FORMATO_ALMACENAMIENTO,blank=False,default='s',help_text='Formato del producto')
     bus = models.CharField(max_length=50)
+    stock = models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to='almacenamiento/',null=True)
     precio = models.IntegerField(default=0)
+
+    def __str__(self):
+        return  self.modelo
 
 class FuentesPoder(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
 
-    CATALOGO_MARCA_FUENTE = (
-        ('s','Seleccione'),
-        ('a','ASUS'),
-        ('e','EVGA'),
-        ('g','GAMEMAX')
-    )
-
-    marca = models.CharField(max_length=1,choices=CATALOGO_MARCA_FUENTE,blank=False,default='s',help_text='Marca del producto')
+    marca = models.CharField(max_length=100,help_text='Marca del producto')
     potencia = models.CharField(max_length=50)
 
     CATALOGO_CERTIFICACION_FUENTE = (
-        ('sele','Seleccione'),
-        ('gold','80PLUS Gold'),
-        ('Bron','80PLUS Bronze'),
-        ('sinc','Sin Certificacion')
+        ('seleleccione','Seleccione'),
+        ('80PLUS Gold','80PLUS Gold'),
+        ('80PLUS Bronze','80PLUS Bronze'),
+        ('Sin Certificacion','Sin Certificacion')
     )
 
-    certificacion = models.CharField(max_length=4,choices=CATALOGO_CERTIFICACION_FUENTE,blank=False,default='sele',help_text='Certificacion del producto')
+    certificacion = models.CharField(max_length=20,choices=CATALOGO_CERTIFICACION_FUENTE,blank=False,default='sele',help_text='Certificacion del producto')
 
     CATALOGO_MODULAR_FUENTE = (
         ('se','Seleccione'),
-        ('si','SI'),
-        ('no','NO')
+        ('SI','SI'),
+        ('NO','NO')
     )
 
     modular = models.CharField(max_length=2,choices=CATALOGO_MODULAR_FUENTE,blank=False,default='se')
+    stock = models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to='fuentedepoder/',null=True)
     precio = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.marca
 
 
 class Gabinete(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
 
-    CATALOGO_MARCA_GABINETE = (
-        ('s','Seleccione'),
-        ('i','In Win'),
-        ('m','marvo')
-    )
-
-    marca = models.CharField(max_length=1,choices=CATALOGO_MARCA_GABINETE,blank=False,default='s',help_text='Marca del producto')
+    marca = models.CharField(max_length=100,help_text='Marca del producto')
     modelo = models.CharField(max_length=50)
 
     CATALOGO_FUENTE_GABINETE = ( 
-        ('se','Seleccione'),
-        ('np','No posee'),
-        ('sp','Si posee')
+        ('seleccione','Seleccione'),
+        ('No posee','No posee'),
+        ('Si posee','Si posee')
     )
 
-    fuente_gabinete = models.CharField(max_length=2,choices=CATALOGO_FUENTE_GABINETE,blank=False,default='se',help_text='Posee o no posee fuente de poder dentro del gabinete')
+    fuente_gabinete = models.CharField(max_length=10,choices=CATALOGO_FUENTE_GABINETE,blank=False,default='se',help_text='Posee o no posee fuente de poder dentro del gabinete')
     
     CATALOGO_PANEL_GABIENTE = (
-        ('s','Seleccione'),
-        ('v','Vidrio Templado'),
-        ('a','Panel Acrilico')
+        ('seleccione','Seleccione'),
+        ('Vidrio Templado','Vidrio Templado'),
+        ('Panel Acrilico','Panel Acrilico')
     )
-    panel = models.CharField(max_length=1,choices=CATALOGO_PANEL_GABIENTE,blank=False,default='s',help_text='Tipo de panel del gabinete')
+    panel = models.CharField(max_length=20,choices=CATALOGO_PANEL_GABIENTE,blank=False,default='s',help_text='Tipo de panel del gabinete')
+    stock = models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to='gabinete/',null=True)
     precio = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.modelo
 
 class Monitore(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
     
-    CATALOGO_MARCA_MONITOR = (
-        ('s','Seleccione'),
-        ('a','Aorus'),
-        ('d','Dell'),
-        ('o','Ozone')
-    )
-
-    marca = models.CharField(max_length=1,choices=CATALOGO_MARCA_MONITOR,blank=False,default='s',help_text='Marca del producto')
+    marca = models.CharField(max_length=100,help_text='Marca del producto')
     modelo = models.CharField(max_length=50)
 
     CATALOGO_PULGADAS_MONITOR = (
-        ('sele','Seleccione'),
-        ('23.0','23.0"'),
-        ('24.0','24.0"'),
-        ('25.0','25.0"'),
-        ('26.0','26.0"'),
-        ('27.0','27.0"')
+        ('seleccione','Seleccione'),
+        ('23.0"','23.0"'),
+        ('24.0"','24.0"'),
+        ('25.0"','25.0"'),
+        ('26.0"','26.0"'),
+        ('27.0"','27.0"')
     )
 
-    pulgadas = models.CharField(max_length=4,choices=CATALOGO_PULGADAS_MONITOR,blank=False,default='sele',help_text='Pulgadas del monitor')
+    pulgadas = models.CharField(max_length=10,choices=CATALOGO_PULGADAS_MONITOR,blank=False,default='sele',help_text='Pulgadas del monitor')
     resolucion = models.CharField(max_length=50)
 
     CATALOGO_TIEMPO_MONITOR = (
-        ('s','Seleccione'),
-        ('1','1 ms'),
-        ('2','2 ms'),
-        ('3','3 ms'),
-        ('4','4 ms'),
+        ('seleccione','Seleccione'),
+        ('1 ms','1 ms'),
+        ('2 ms','2 ms'),
+        ('3 ms','3 ms'),
+        ('4 ms','4 ms'),
     )
 
-    tiempo_respuesta = models.CharField(max_length=1,choices=CATALOGO_TIEMPO_MONITOR,blank=False,default='s',help_text='Tiempo de respuesta del monitor')
+    tiempo_respuesta = models.CharField(max_length=10,choices=CATALOGO_TIEMPO_MONITOR,blank=False,default='s',help_text='Tiempo de respuesta del monitor')
 
     CATALOGO_TASA_MONITOR = (
-        ('sel','Seleccione'),
-        ('120','120 Hz'),
-        ('144','144 Hz'),
-        ('165','165 Hz')
+        ('seleccione','Seleccione'),
+        ('120 Hz','120 Hz'),
+        ('144 Hz','144 Hz'),
+        ('165 Hz','165 Hz')
     )
 
-    tasa_refresco = models.CharField(max_length=3,choices=CATALOGO_TASA_MONITOR,blank=False,default='sel',help_text='Tasa de refresco del monitor')
+    tasa_refresco = models.CharField(max_length=10,choices=CATALOGO_TASA_MONITOR,blank=False,default='sel',help_text='Tasa de refresco del monitor')
+    stock = models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to='monitor/',null=True)
     precio = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.modelo
+
+    
 
 
 

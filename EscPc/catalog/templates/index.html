@@ -4,8 +4,7 @@
 
 
 
-    <!--contenido index-->
-    <!--carrusel inicial-->
+    
 {% block content %}
 <head>
   {% load static %}<link rel="stylesheet" href="{% static 'css/estiloIndex.css' %}">
@@ -39,7 +38,7 @@
     <!--primera fila placa y proce-->
     <div class="d-md-flex flex-md-equal d-block w-100 my-md-3 " style="width: auto; height: auto;">
         <!--placas-->
-        <a href="{% url 'placasmadres' %}">
+        <a href="{% url 'placamadre' %}">
           <div id="placa" class="imagen" class=" mr-md-3 pt-3 px-3 ml-md-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <style>
               #placa{
@@ -55,7 +54,7 @@
         </a>
         
         <!--proce-->
-        <a href="{% url 'procesadores' %}">
+        <a href="{% url 'procesador' %}">
           <div id="proce" class="imagen" class=" mr-md-3 pt-3 px-3 mr-md-3  pt-md-5 px-md-5 text-center overflow-hidden">
             <style>
               #proce{
@@ -73,7 +72,7 @@
     <!--segunda fila video y ram-->
     <div class="d-md-flex flex-md-equal w-100 my-md-3 " style="width: auto; height: auto;" >
         <!--video-->
-        <a href="tarjetadevideo.html">
+        <a href="{% url 'video' %}">
           <div id="gpu" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" >
             <style>
               #gpu{
@@ -87,7 +86,7 @@
         </a>
 
         <!--ram-->
-        <a href="{% url 'ram' %}">
+        <a href="{% url 'rams' %}">
           <div id="ram" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <style>
               #ram{
@@ -104,7 +103,7 @@
     <!--tercerta fila almacenimiento y fuente de poder-->
     <div class=" d-md-flex flex-md-equal w-100 my-md-3 " style="width: auto; height: auto;">
         <!--almacenimiento-->
-        <a href="almacenamiento.html">
+        <a href="{% url 'alma' %}">
           <div id="almacenamiento" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <style>
               #almacenamiento{
@@ -118,7 +117,7 @@
         </a>
 
         <!--fuente de poder-->
-        <a href="fuenteDePoder.html">
+        <a href="{% url 'fuente' %}">
           <div id="fuente" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" >
             <style>
               #fuente{
@@ -135,7 +134,7 @@
     <!--cuarta fila gabinetes y monitores-->
     <div class="d-md-flex flex-md-equal w-100 my-md-3" style="width: auto; height: auto;">
         <!--gabitenes-->
-        <a href="gabinetes.html">
+        <a href="{% url 'gabo' %}">
           <div id="gabinete" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
            <style>
              #gabinete{
@@ -149,7 +148,7 @@
         </a>
 
         <!--monitores-->
-        <a href="monitores.html">
+        <a href="{% url 'moni' %}">
           <div id="monitor" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <style>
               #monitor{
