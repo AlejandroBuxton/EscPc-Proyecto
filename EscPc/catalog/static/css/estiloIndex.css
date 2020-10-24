@@ -3,6 +3,10 @@
     src: url(Sabo-Filled.ttf);
 }
 
+body{
+    background-color: #6c6c6c;
+}
+
 .titulo{
     border-style: double;
     border-width: 10px;
