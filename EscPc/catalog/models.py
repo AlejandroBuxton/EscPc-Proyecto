@@ -4,10 +4,9 @@ import uuid
 
 
 class PlacasMadre(models.Model):
-    id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
     marca = models.CharField(max_length=100,help_text='Marca del producto')
     modelo = models.CharField(max_length=100)
-    
+
     CATALOGO_FORMATO_PLACAMADRE = (
         ('seleccione','Seleccione'),
         ('ATX','ATX'),
@@ -26,10 +25,12 @@ class PlacasMadre(models.Model):
     plataforma = models.CharField(max_length=10,choices=CATALOGO_PLATAFORMA_PLACAMADRE,blank=False,default='se',help_text='Plataforma de la Placa Madre')
     stock = models.IntegerField(default=0)
     imagen = models.ImageField(upload_to='placasmadres/',null=True)
+    imagen_detail = models.ImageField(upload_to='placasmadres_detail/',null=True)
     precio = models.IntegerField(default=0)
-    
+
     def __str__(self):
-        return self.modelo
+        return f'{self.marca},{self.modelo}'
+
 
 class Procesadore(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
@@ -43,7 +44,7 @@ class Procesadore(models.Model):
     marca = models.CharField(max_length=10,choices=CATALOGO_MARCA_PROCESADOR,blank=False,default='s',help_text='Marca del producto')
     modelo = models.CharField(max_length=100)
     frecuencia = models.CharField(max_length=50)
-    
+
     CATALOGO_SOCKET_PROCESADOR = (
         ('seleccione','Seleccione'),
         ('LGA 1151-v2','LGA 1151-v2'),
@@ -93,7 +94,7 @@ class Ram(models.Model):
 
     tipo = models.CharField(max_length=10,choices=CATALOGO_TIPO_RAM,blank=False,default='se',help_text='Tipo de ram')
     frecuencia = models.CharField(max_length=50)
-    
+
     CATALOGO_FORMATO_RAM = (
         ('seleccione','Seleccione'),
         ('DIMM','DIMM'),
@@ -106,14 +107,14 @@ class Ram(models.Model):
     precio = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.marca 
+        return self.marca
 
 class Almacenamiento(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unido del producto')
     marca = models.CharField(max_length=100,help_text='Marca del producto')
     modelo = models.CharField(max_length=50)
     capacidad = models.CharField(max_length=50)
-    
+
     CATALOGO_FORMATO_ALMACENAMIENTO = (
         ('seleccione','Seleccione'),
         ('HDD','HDD'),
@@ -166,14 +167,14 @@ class Gabinete(models.Model):
     marca = models.CharField(max_length=100,help_text='Marca del producto')
     modelo = models.CharField(max_length=50)
 
-    CATALOGO_FUENTE_GABINETE = ( 
+    CATALOGO_FUENTE_GABINETE = (
         ('seleccione','Seleccione'),
         ('No posee','No posee'),
         ('Si posee','Si posee')
     )
 
     fuente_gabinete = models.CharField(max_length=10,choices=CATALOGO_FUENTE_GABINETE,blank=False,default='se',help_text='Posee o no posee fuente de poder dentro del gabinete')
-    
+
     CATALOGO_PANEL_GABIENTE = (
         ('seleccione','Seleccione'),
         ('Vidrio Templado','Vidrio Templado'),
@@ -189,7 +190,7 @@ class Gabinete(models.Model):
 
 class Monitore(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
-    
+
     marca = models.CharField(max_length=100,help_text='Marca del producto')
     modelo = models.CharField(max_length=50)
 
@@ -230,10 +231,18 @@ class Monitore(models.Model):
     def __str__(self):
         return self.modelo
 
-    
+opciones_consultas = [
+    [0,"consulta"],
+    [1,"sugerencia"],
+    [2,"reclamo"]
+]
 
+class Contacto(models.Model):
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    email = models.EmailField()
+    tipo_consulta = models.IntegerField(choices=opciones_consultas)
+    mensaje = models.TextField()
 
-
-
-
-
+    def __str__(self):
+        return self.email

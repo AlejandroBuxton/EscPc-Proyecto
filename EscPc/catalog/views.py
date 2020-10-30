@@ -1,17 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from . models import PlacasMadre,Procesadore,Gpu,Ram,Almacenamiento,FuentesPoder,Gabinete,Monitore
-from django.views import generic
+from django.views.generic import ListView, DetailView
+from .forms import PlacaForm, ContactoForm
+from django.contrib import messages
 
 # Create your views here.
 
-
 def index(request):
-    
-    return render(
-        request,
-        'index.html',
-        
-    )
+    return render(request,'index.html',)
+
+def contacto(request):
+    return render(request,'contacto.html',)
 
 def placamadre(request):
     productoPlaca = PlacasMadre.objects.all()
@@ -85,8 +84,60 @@ def moni(request):
         context={'productoMoni':productoMoni},
     )
 
+class PlacaListView(ListView):
+    model = PlacasMadre
+    template_name = 'catalogo/placasmadre_list.html'
 
+class PlacaDetailView(DetailView):
+    model = PlacasMadre
+    template_name = 'catalogo/placasmadre_detail.html'
 
+#CRUD
+#AGREGAR
+def nueva_placa(request):
+    data = {
+        'form':PlacaForm()
+    }
+    if request.method == 'POST':
+        formulario = PlacaForm(data=request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Producto ingresado exitosamente!")
+            return redirect(to="placas")
+    return render(request, 'catalogo/nueva_placa.html', data)
 
+#MODIFICAR
+def modificar_placa(request, id):
+    placa = get_object_or_404(PlacasMadre, id=id)
+    data = {
+        'form':PlacaForm(instance=placa)
+    }
+    if request.method == 'POST':
+        formulario = PlacaForm(data=request.POST, instance=placa, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Producto modificado exitosamente!")
+            return redirect(to="placas")
+        data["form"] = formulario
+    return render(request,'catalogo/modificar_placa.html', data)
 
-           
+#ELIMINAR
+def eliminar_placa(request, id):
+    placa = get_object_or_404(PlacasMadre, id=id)
+    placa.delete()
+    messages.success(request, "Producto eliminado exitosamente!")
+    return redirect(to="placas")
+
+#CONTACTO
+def contacto(request):
+    data = {
+        'contactoform':ContactoForm()
+    }
+    if request.method == 'POST':
+        formulario = ContactoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Mensaje enviado"
+        else:
+            data["contactoform"] = formulario
+    return render(request, 'contacto.html', data)

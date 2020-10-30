@@ -3,12 +3,19 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('templates/placasmadres.html', views.placamadre, name="placamadre"),
-    path('templates/procesadores.html', views.procesador, name="procesador"),
-    path('templates/tarjetadevideo.html', views.video, name="video"),
-    path('templates/ram.html', views.rams, name="rams"),
-    path('templates/almacenamiento.html', views.alma, name="alma"),
-    path('templates/fuenteDePoder.html', views.fuente, name="fuente"),
-    path('templates/gabinetes.html', views.gabo, name="gabo"),
-    path('templates/monitores.html', views.moni, name="moni"),
+    path('placasmadres/', views.placamadre, name="placamadre"),
+    path('procesadores/', views.procesador, name="procesador"),
+    path('tarjetadevideo/', views.video, name="video"),
+    path('ram/', views.rams, name="rams"),
+    path('almacenamiento/', views.alma, name="alma"),
+    path('fuenteDePoder/', views.fuente, name="fuente"),
+    path('gabinetes/', views.gabo, name="gabo"),
+    path('monitores/', views.moni, name="moni"),
+    path('contacto/', views.contacto, name="contacto"),
+
+    path('placasmadre/', views.PlacaListView.as_view(), name="placas"),
+    path('placamadre/<int:pk>', views.PlacaDetailView.as_view(), name="placas-detail"),
+    path('nueva-placa/', views.nueva_placa, name="nueva_placa"),
+    path('modificar-placa/<id>/', views.modificar_placa, name="modificar_placa"),
+    path('eliminar-placa/<id>/', views.eliminar_placa, name="eliminar_placa"),
 ]
