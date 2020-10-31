@@ -137,7 +137,7 @@ def contacto(request):
         formulario = ContactoForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "Mensaje enviado"
+            messages.success(request, "Mensaje enviado exitosamente!")
         else:
             data["contactoform"] = formulario
     return render(request, 'contacto.html', data)
