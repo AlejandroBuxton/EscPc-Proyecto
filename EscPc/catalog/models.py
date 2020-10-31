@@ -5,7 +5,7 @@ import uuid
 
 class PlacasMadre(models.Model):
     marca = models.CharField(max_length=100,help_text='Marca del producto')
-    modelo = models.CharField(max_length=100)
+    modelo = models.CharField(max_length=100,help_text='Modelo del producto')
 
     CATALOGO_FORMATO_PLACAMADRE = (
         ('seleccione','Seleccione'),
@@ -23,42 +23,37 @@ class PlacasMadre(models.Model):
     )
 
     plataforma = models.CharField(max_length=10,choices=CATALOGO_PLATAFORMA_PLACAMADRE,blank=False,default='se',help_text='Plataforma de la Placa Madre')
-    stock = models.IntegerField(default=0)
+    stock = models.IntegerField(default=0,help_text='Stock del producto')
     imagen = models.ImageField(upload_to='placasmadres/',null=True)
     imagen_detail = models.ImageField(upload_to='placasmadres_detail/',null=True)
-    precio = models.IntegerField(default=0)
+    precio = models.IntegerField(default=0,help_text='Precio del producto')
 
     def __str__(self):
         return f'{self.marca},{self.modelo}'
 
 
 class Procesadore(models.Model):
-    id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
-
     CATALOGO_MARCA_PROCESADOR = (
         ('seleccione','Seleccione'),
         ('AMD','AMD'),
         ('Intel','Intel')
     )
-
     marca = models.CharField(max_length=10,choices=CATALOGO_MARCA_PROCESADOR,blank=False,default='s',help_text='Marca del producto')
-    modelo = models.CharField(max_length=100)
-    frecuencia = models.CharField(max_length=50)
-
+    modelo = models.CharField(max_length=100,help_text='Modelo del producto')
+    frecuencia = models.CharField(max_length=50,help_text='Frecuencia del producto')
     CATALOGO_SOCKET_PROCESADOR = (
         ('seleccione','Seleccione'),
         ('LGA 1151-v2','LGA 1151-v2'),
         ('AM4','AM4'),
         ('TR4','TR4')
     )
-
     socket = models.CharField(max_length=11,choices=CATALOGO_SOCKET_PROCESADOR,blank=False,default='s',help_text='Socket del producto')
-    stock = models.IntegerField(default=0)
+    stock = models.IntegerField(default=0,help_text='Stock del producto')
     imagen = models.ImageField(upload_to='procesador/',null=True)
-    precio = models.IntegerField(default=0)
-
+    imagen_detail = models.ImageField(upload_to='procesador_detail/',null=True)
+    precio = models.IntegerField(default=0,help_text='Precio del producto')
     def __str__(self):
-        return  self.modelo
+        return  f'{self.marca},{self.modelo}'
 
 class Gpu(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4,help_text='Codigo unico del producto')
