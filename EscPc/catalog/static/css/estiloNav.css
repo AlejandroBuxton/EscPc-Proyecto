@@ -3,8 +3,6 @@
     src: url(Sabo-Filled.ttf);
 }
 
-
-
 nav{
 
     font-family: fuente8bits;
@@ -12,8 +10,8 @@ nav{
     white-space: nowrap;
 }
 
-.footer{
-  height: 4rem;
+footer{
+  width: 100%;
 }
 
 footer div{

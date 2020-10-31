@@ -3,14 +3,22 @@
 
 {% block content %}
 <br>
-<br>
-<br>
+
 <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"
 </head>
 
 <body >
-  <div class="container" style="min-height: calc(100% - 4rem);">
+  <div id="seguimiento" class="container">
+      <div class="col-md-5">
+          <ol class="breadcrumb breadcrumb-extend">
+              <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'placamadre' %}">Placas Madres</a></li>
+              <li class="breadcrumb-item active">Lista de productos</li>
+          </ol>
+      </div>
+  </div>
+  <div class="container mt-5" >
     <div class="card">
       <div class="card-body">
         <h1 style="font-family: fuente8bits; font-size: 3vw; float:left;">Lista de productos</h1>
@@ -54,6 +62,9 @@
       </div>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
 </body>
 
 
