@@ -2,7 +2,8 @@ from django import forms
 from django.forms import ModelForm
 from .models import PlacasMadre, Procesadore ,Contacto
 
-class PlacaForm(ModelForm):
+class PlacaForm(ModelForm,forms.Form):
+
     class Meta:
         model = PlacasMadre
         fields = ['marca','modelo','formato','plataforma','stock','imagen','imagen_detail','precio']
